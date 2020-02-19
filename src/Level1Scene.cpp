@@ -19,12 +19,15 @@ Level1Scene::~Level1Scene()
 
 void Level1Scene::draw()
 {
+	m_pBack->draw();
 	m_pRollButton->draw();
 	m_pDiceOne->draw();
 	m_pDiceTwo->draw();
 
 	m_pDiceOneLabel->draw();
 	m_pDiceTwoLabel->draw();
+
+	
 }
 
 void Level1Scene::update()
@@ -147,10 +150,15 @@ void Level1Scene::start()
 	
 	m_pDiceTwoLabel = new Label("2", "Consolas", 20, black,
 		glm::vec2(700, 320), 0, true);
+
+	m_pBack = new Background();
+
+	TheSoundManager::Instance()->load("../Assets/audio/dice-1.wav", "dice", SOUND_SFX);
 }
 
 void Level1Scene::rollDice()
 {
+	TheSoundManager::Instance()->playSound("dice", 0);
 	int temp= floor((rand() % 6) + 1);
 	if(temp == 1)
 	{

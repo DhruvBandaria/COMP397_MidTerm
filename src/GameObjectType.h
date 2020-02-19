@@ -17,6 +17,7 @@ enum GameObjectType {
 	THREE,
 	FOUR,
 	FIVE,
+	BACKGROUND,
 	SIX
 };
 

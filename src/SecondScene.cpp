@@ -19,6 +19,8 @@ SecondScene::~SecondScene()
 
 void SecondScene::draw()
 {
+	m_pBack->draw();
+	
 	m_pRollButton->draw();
 	m_pDiceOne->draw();
 	m_pDiceTwo->draw();
@@ -170,10 +172,15 @@ void SecondScene::start()
 
 	m_pResult = new Label("Result: 0", "Consolas", 20, black,
 		glm::vec2(500, 400), 0, true);
+
+	m_pBack = new Background();
+
+	TheSoundManager::Instance()->load("../Assets/audio/dice-1.wav", "dice", SOUND_SFX);
 }
 
 void SecondScene::rollDice()
 {
+	TheSoundManager::Instance()->playSound("dice", 0);
 	int temp1 = floor((rand() % 6) + 1);
 	if (temp1 == 1)
 	{

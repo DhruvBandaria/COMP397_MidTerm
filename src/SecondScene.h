@@ -5,6 +5,7 @@
 #include "Scene.h"
 #include "Label.h"
 #include "RollButton1.h"
+#include "Background.h"
 
 class SecondScene : public Scene
 {
@@ -38,6 +39,8 @@ private:
 	Label* m_pHeadingLabel;
 
 	Label* m_pResult;
+
+	Background* m_pBack;
 
 	// private data member
 	glm::vec2 m_mousePosition;
